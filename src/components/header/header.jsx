@@ -1,5 +1,6 @@
 import React from "react";
-import "./styles/header.css";
+import "./header.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -17,37 +18,39 @@ function Header() {
         <nav className="nav-desktop hidden md:flex">
           <ul className="nav-list flex space-x-2">
             <li>
-              <a
-                href="#home"
+              <Link
+                to="/"
                 className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition"
               >
                 Home
-              </a>
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="anotherpage"
+                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition whitespace-nowrap"
+              >
+                Another page
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
-                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition"
+              <Link
+                to="page1"
+                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition whitespace-nowrap"
               >
-                About
-              </a>
+                Page1
+              </Link>
             </li>
             <li>
-              <a
-                href="#skills"
-                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition"
+              <Link
+                to="page2"
+                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition whitespace-nowrap"
               >
-                Skills
-              </a>
+                Page2
+              </Link>
             </li>
-            <li>
-              <a
-                href="#projects"
-                className="text-gray-700 hover:bg-gray-200 rounded py-2 px-4 transition"
-              >
-                Projects
-              </a>
-            </li>
+
             <li>
               <a
                 href="#experience"

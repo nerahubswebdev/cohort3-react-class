@@ -1,0 +1,15 @@
+/* About section style start */
+.about {
+  text-align: center;
+  background-color: #f4f4f4;
+  color: black;
+}
+.about p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1em;
+}
+
+.about h2 {
+  font-size: 2rem;
+}
