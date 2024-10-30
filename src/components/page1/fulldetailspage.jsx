@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Persondetails from "./persondetails";
+import React from "react";
+import { useParams } from "react-router-dom";
 
-function Page1() {
+function Fulldetailspage() {
   const people = [
     {
       name: "Alice",
@@ -74,24 +74,12 @@ function Page1() {
       voted: false,
     },
   ];
+  const { id } = useParams();
+  console.log("the hdhdh :", id);
 
-  // console.log("the people array : ", people);
+  const fulldetail = people?.filter((b) => b.name === id);
 
-  // state for holding people data
-  const [peopleData, setPeopleData] = useState(people);
-
-  console.log("people data from state :", peopleData);
-
-  return (
-    <div>
-      <h1>the people data</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {peopleData?.map((pers) => (
-          <Persondetails key={pers.name} personData={pers} />
-        ))}
-      </div>
-    </div>
-  );
+  return <div>fulldetailspage</div>;
 }
 
-export default Page1;
+export default Fulldetailspage;

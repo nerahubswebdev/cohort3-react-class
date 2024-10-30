@@ -7,6 +7,8 @@ import Anotherpage from "./components/anotherpage/anotherpage.jsx";
 import Page1 from "./components/page1/page1.jsx";
 import Page2 from "./components/page2/page2.jsx";
 import Layout from "./components/layout/layout.jsx";
+import Dynamicpage from "./components/anotherpage/dynamicpage.jsx";
+import Fulldetailspage from "./components/page1/fulldetailspage.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -47,8 +49,16 @@ const router = createBrowserRouter([
         element: <Anotherpage />,
       },
       {
+        path: "anotherpage/:blalalalalala/:hdhdhd",
+        element: <Dynamicpage />,
+      },
+      {
         path: "page1",
         element: <Page1 />,
+      },
+      {
+        path: "page1/:id",
+        element: <Fulldetailspage />,
       },
       {
         path: "page2",
