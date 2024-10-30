@@ -1,85 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Fulldetailspage() {
-  const people = [
-    {
-      name: "Alice",
-      location: "New York",
-      age: 28,
-      savings: 12000,
-      voted: true,
-    },
-    {
-      name: "Bob",
-      location: "Los Angeles",
-      age: 34,
-      savings: 15000,
-      voted: false,
-    },
-    {
-      name: "Charlie",
-      location: "Chicago",
-      age: 25,
-      savings: 8000,
-      voted: true,
-    },
-    {
-      name: "Diana",
-      location: "Miami",
-      age: 30,
-      savings: 20000,
-      voted: true,
-    },
-    {
-      name: "Ethan",
-      location: "Dallas",
-      age: 22,
-      savings: 5000,
-      voted: false,
-    },
-    {
-      name: "Fiona",
-      location: "Seattle",
-      age: 29,
-      savings: 18000,
-      voted: true,
-    },
-    {
-      name: "George",
-      location: "San Francisco",
-      age: 40,
-      savings: 25000,
-      voted: true,
-    },
-    {
-      name: "Hannah",
-      location: "Boston",
-      age: 35,
-      savings: 30000,
-      voted: false,
-    },
-    {
-      name: "Ian",
-      location: "Atlanta",
-      age: 27,
-      savings: 7000,
-      voted: true,
-    },
-    {
-      name: "Julia",
-      location: "Denver",
-      age: 31,
-      savings: 9000,
-      voted: false,
-    },
-  ];
   const { id } = useParams();
   console.log("the hdhdh :", id);
 
-  const fulldetail = people?.filter((b) => b.name === id);
+  const [singleProductData, setSingleProductData] = useState();
 
-  return <div>fulldetailspage</div>;
+  useEffect(() => {
+    const products = async () => {
+      try {
+        const response = await fetch(
+          `https://fakestoreapi.com/products/${id}`
+        ).then((res) => res.json());
+        if (response) {
+          setSingleProductData(response);
+        }
+      } catch (error) {
+        console.log("did not fetch");
+      }
+    };
+    products();
+  }, [id]);
+
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold text-red-600">
+        {singleProductData?.title}
+      </h3>
+      <p>{singleProductData?.description}</p>
+      <p>{singleProductData?.category}</p>
+      <p>{singleProductData?.price}</p>
+
+      <div>
+        <img
+          src={singleProductData?.image}
+          alt="hfhfhf"
+          className="w-24 h-24 object-contain rounded-lg"
+        />
+      </div>
+    </div>
+  );
 }
 
 export default Fulldetailspage;
